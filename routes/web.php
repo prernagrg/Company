@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SiteConfigController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,7 @@ Route::prefix('/admin')-> middleware('auth')->group(function () {
     Route::resource('/About',AboutController::class);
     Route::resource('/Team',TeamController::class);
     Route::resource('/Skills', SkillController::class);
+    Route::resource('/Settings', SiteConfigController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

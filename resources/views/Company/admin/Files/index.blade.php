@@ -58,6 +58,6 @@
             @endforeach
         </tbody>
     </table>
-    {{$files->links()}};
+    {{$files->links()}}
 </div>
 @endsection
