@@ -24,7 +24,7 @@ class FrontendController extends Controller
         $about = About::query()->get()->first();
         $services = Services::query()->limit(8);
         $settings = Site_config::query()->get()->all();
-        return view('Company.index', compact('carousels', 'about', 'services', 'settings'));
+        return view('Company.about', compact('carousels', 'about', 'services', 'settings'));
     }
     public function contact()
     {
