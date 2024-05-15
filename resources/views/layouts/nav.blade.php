@@ -27,7 +27,7 @@
             </ul>
           </li>
 
-          <li><a class="" href="/service" class="nav-item nav-link {{ Request::is('service') ? ' active' : ''}}">Services</a></li>
+          <li><a class="" href="/services" class="nav-item nav-link {{ Request::is('services') ? ' active' : ''}}">Services</a></li>
           <li><a href="/portfolio" class="nav-item nav-link {{ request()->is('portfolio') ? ' active' : '' }}">Portfolio</a></li>
           <li><a href="/pricing" class="nav-item nav-link {{ request()->is('pricing') ? ' active' : '' }}">Pricing</a></li>
           <li><a href="/blog" class="nav-item nav-link {{ request()->is('blog') ? ' active' : '' }}">Blog</a></li>
