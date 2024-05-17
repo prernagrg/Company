@@ -127,6 +127,7 @@
                   </li>
                 </ul>
               </li>
+
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>
@@ -145,6 +146,26 @@
                   </li>
                 </ul>
               </li>
+
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface">clients</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('About.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('About.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>

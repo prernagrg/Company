@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/services', [FrontendController::class, 'services'])->name('services');
+Route::get('/team', [FrontendController::class, 'team'])->name('team');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,13 +44,6 @@ Route::get('/pricing', function () {
     return view('Company.pricing');
 });
 
-Route::get('/services', function () {
-    return view('Company.services');
-});
-
-Route::get('/team', function () {
-    return view('Company.team');
-});
 
 Route::get('/testimonials', function () {
     return view('Company.testimonials');
@@ -64,6 +60,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Skills', SkillController::class);
     Route::resource('/Settings', SiteConfigController::class);
     Route::resource('/Carousel', CarouselController::class);
+    Route::resource('/Client', ClientController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

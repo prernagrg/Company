@@ -11,6 +11,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
+  <script src="https://kit.fontawesome.com/04f8e630b4.js" crossorigin="anonymous"></script>
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
