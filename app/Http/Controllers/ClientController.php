@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -21,7 +22,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('Company.admin.clients.create');
+        $files = File::query()->paginate(4);
+        return view('Company.admin.clients.create',compact('files'));
     }
 
     /**
@@ -29,7 +31,13 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $client = new Client;
+        $request->validate([
+            'img'=> 'required|max:150'
+        ]);
+        $client->img = $request->img;
+        $client->save();
+        return redirect('/admin/Client')->with('message','Added successfully');
     }
 
     /**
@@ -37,7 +45,9 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $files = File::query()->paginate(4);
+        $client = Client::query()->where('id',$id)->get()->first();
+        return view('Company.admin.clients.view', compact('files','client'));
     }
 
     /**
@@ -45,7 +55,9 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $files = File::query()->paginate(4);
+        $client = Client::query()->where('id',$id)->get()->first();
+        return view('Company.admin.clients.edit', compact('files','client'));
     }
 
     /**
@@ -53,7 +65,14 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = new Client;
+        $client = $client->where('id',$id)->get()->first();
+        $request->validate([
+            'img'=> 'required|max:150'
+        ]);
+        $client->img = $request->img;
+        $client->update();
+        return redirect('/admin/Client')->with('message','Added successfully');
     }
 
     /**
@@ -61,6 +80,8 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::query()->where('id',$id)->get()->first();
+        $client->delete();
+        return redirect('/admin/Client')->with('message','Deleted Successfully');
     }
 }
