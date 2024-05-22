@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Carousel;
+use App\Models\Client;
 use App\Models\Services;
 use App\Models\Site_config;
 use App\Models\Skill;
@@ -26,7 +27,8 @@ class FrontendController extends Controller
         $about = About::query()->get()->first();
         $teams = Team::query()->limit(4)->get();
         $skills = Skill::query()->limit(6)->get();
-        return view('Company.about', compact( 'about','teams','skills'));
+        $clients = Client::query()->limit(8)->get();
+        return view('Company.about', compact( 'about','teams','skills', 'clients'));
     }
 
    public function services()

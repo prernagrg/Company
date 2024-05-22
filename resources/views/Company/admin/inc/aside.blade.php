@@ -154,12 +154,12 @@
                 </a>
                 <ul class="menu-sub">
                   <li class="menu-item">
-                    <a href="{{route('About.create')}}" class="menu-link">
+                    <a href="{{route('Client.create')}}" class="menu-link">
                       <div data-i18n="Accordion">Create</div>
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="{{route('About.index')}}" class="menu-link">
+                    <a href="{{route('Client.index')}}" class="menu-link">
                       <div data-i18n="Alerts">Index</div>
                     </a>
                   </li>
