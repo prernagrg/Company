@@ -12,7 +12,8 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        //
+        $features = Feature::query()->paginate(8);
+        return view('Company.admin.feature.index', compact('features'));
     }
 
     /**
@@ -20,7 +21,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        //
+        return view('Company.admin.feature.create');
     }
 
     /**
@@ -28,38 +29,60 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $feature = new Feature;
+        $request->validate([
+            'icon'=>'required|max:150',
+            'title'=>'required|max:150'
+        ]);
+        $feature->icon = $request->icon;
+        $feature->title = $request->title;
+        $feature->save();
+        return redirect('/admin/Feature')->with('message','Added Successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Feature $feature)
+    public function show($id)
     {
-        //
+        $feature = Feature::query()->where('id',$id)->get()->first();
+        return view('Company.admin.feature.view', compact('feature'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Feature $feature)
+    public function edit($id)
     {
-        //
+        $feature = Feature::query()->where('id',$id)->get()->first();
+        return view('Company.admin.feature.edit', compact('feature'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Feature $feature)
+    public function update(Request $request, $id)
     {
-        //
+        $feature = new Feature;
+        $feature = $feature->where('id',$id)->get()->first();
+        $request->validate([
+            'icon'=>'required|max:150',
+            'title'=>'required|max:150'
+        ]);
+        $feature->icon = $request->icon;
+        $feature->title = $request->title;
+        $feature->update();
+        return redirect('/admin/Feature')->with('message','Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Feature $feature)
+    public function destroy($id)
     {
-        //
+        $feature = Feature::query()->where('id',$id)->get()->first();
+        $feature->delete();
+        return redirect('/admin/Feature')->with('message','Deleted successfully');
     }
 }
