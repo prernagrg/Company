@@ -19,7 +19,8 @@ class FrontendController extends Controller
         $about = About::query()->get()->first();
         $services = Services::query()->limit(6)->get();
         $settings = Site_config::query()->get()->all();
-        return view('Company.index', compact('carousels', 'about', 'services', 'settings'));
+        $clients = Client::query()->limit(8)->get();
+        return view('Company.index', compact('carousels', 'about', 'services', 'settings','clients'));
     }
     public function about()
     {
