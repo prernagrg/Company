@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SiteConfigController;
@@ -63,6 +64,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Carousel', CarouselController::class);
     Route::resource('/Client', ClientController::class);
     Route::resource('/Feature', FeatureController::class);
+    Route::resource('/Portfolio' , PortfolioController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
