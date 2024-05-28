@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\App;
+use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
 use App\Models\Feature;
@@ -10,6 +12,7 @@ use App\Models\Services;
 use App\Models\Site_config;
 use App\Models\Skill;
 use App\Models\Team;
+use App\Models\Web;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -21,7 +24,10 @@ class FrontendController extends Controller
         $services = Services::query()->limit(6)->get();
         $settings = Site_config::query()->get()->all();
         $clients = Client::query()->limit(8)->get();
-        return view('Company.index', compact('carousels', 'about', 'services', 'settings','clients'));
+        $apps = App::query()->limit(3)->get();
+        $cards = Card::query()->limit(3)->get();
+        $webs = Web::query()->limit(3)->get();
+        return view('Company.index', compact('carousels', 'about', 'services', 'settings','clients','apps','cards','webs'));
     }
     public function about()
     {
@@ -44,6 +50,13 @@ class FrontendController extends Controller
    {
     $teams = Team::query()->limit(4)->get();
     return view('Company.team', compact('teams'));
+   }
+   public function portfolio()
+   {
+    $apps = App::query()->limit(3)->get();
+    $cards = Card::query()->limit(3)->get();
+    $webs = Web::query()->limit(3)->get();
+    return view('Company.portfolio', compact('apps','cards','webs'));
    }
     public function contact()
     {

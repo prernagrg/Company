@@ -1,17 +1,19 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SiteConfigController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -19,6 +21,7 @@ Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
+Route::get('/portfolio',[FrontendController::class,'portfolio'])->name('portfolio');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,10 +39,6 @@ Route::get('/blog', function () {
 
 Route::get('/portfolio-details', function () {
     return view('Company.portfolio-details');
-});
-
-Route::get('/portfolio', function () {
-    return view('Company.portfolio');
 });
 
 Route::get('/pricing', function () {
@@ -64,7 +63,9 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Carousel', CarouselController::class);
     Route::resource('/Client', ClientController::class);
     Route::resource('/Feature', FeatureController::class);
-    Route::resource('/Portfolio' , PortfolioController::class);
+    Route::resource('/App',AppController::class);
+    Route::resource('/Web',WebController::class);
+    Route::resource('/Card',CardController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

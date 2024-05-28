@@ -259,21 +259,59 @@
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>
-                  <div data-i18n="User interface">Portfolio</div>
+                  <div data-i18n="User interface">App</div>
                 </a>
                 <ul class="menu-sub">
                   <li class="menu-item">
-                    <a href="{{route('Portfolio.create')}}" class="menu-link">
+                    <a href="{{route('App.create')}}" class="menu-link">
                       <div data-i18n="Accordion">Create</div>
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="{{route('Portfolio.index')}}" class="menu-link">
+                    <a href="{{route('App.index')}}" class="menu-link">
                       <div data-i18n="Alerts">Index</div>
                     </a>
                   </li>
                 </ul>
               </li>
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface">Card</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Card.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Card.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface">Web</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Web.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Web.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>
