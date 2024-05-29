@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SiteConfigController;
@@ -22,6 +23,7 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/portfolio',[FrontendController::class,'portfolio'])->name('portfolio');
+Route::get('/pricing',[FrontendController::class,'pricing'])->name('pricing');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,11 +42,6 @@ Route::get('/blog', function () {
 Route::get('/portfolio-details', function () {
     return view('Company.portfolio-details');
 });
-
-Route::get('/pricing', function () {
-    return view('Company.pricing');
-});
-
 
 Route::get('/testimonials', function () {
     return view('Company.testimonials');
@@ -66,6 +63,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/App',AppController::class);
     Route::resource('/Web',WebController::class);
     Route::resource('/Card',CardController::class);
+    Route::resource('/Pricing', PricingController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

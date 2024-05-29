@@ -8,6 +8,7 @@ use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
 use App\Models\Feature;
+use App\Models\Pricing;
 use App\Models\Services;
 use App\Models\Site_config;
 use App\Models\Skill;
@@ -57,6 +58,12 @@ class FrontendController extends Controller
     $cards = Card::query()->limit(3)->get();
     $webs = Web::query()->limit(3)->get();
     return view('Company.portfolio', compact('apps','cards','webs'));
+   }
+
+   public function pricing()
+   {
+    $pricings = Pricing::query()->limit(4)->get();
+    return view('Company.pricing',compact('pricings'));
    }
     public function contact()
     {

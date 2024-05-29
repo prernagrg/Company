@@ -54,10 +54,13 @@
   <style>
     th, td{
     text-align: left;
-    max-width: 150px; /* Set maximum width of the cell */
+    max-width: 110px; /* Set maximum width of the cell */
     overflow: hidden; /* Hide content that exceeds the cell's dimensions */
     white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Show ellipsis (...) for overflowing content */
+    /* text-overflow: ellipsis; Show ellipsis (...) for overflowing content */
+    }
+    td.action{
+      overflow: auto;
     }
   </style>
   <body>
