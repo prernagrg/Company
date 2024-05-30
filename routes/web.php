@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PortfolioDetailController;
 use App\Http\Controllers\PortfolioImgController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\SiteConfigController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\WebController;
+use App\Models\Portfolio_detail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -25,6 +27,7 @@ Route::get('/services', [FrontendController::class, 'services'])->name('services
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/portfolio',[FrontendController::class,'portfolio'])->name('portfolio');
 Route::get('/pricing',[FrontendController::class,'pricing'])->name('pricing');
+Route::get('/portfolioDetails',[FrontendController::class,'portfolioDetails'])->name('portfolioDetails');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,11 +41,6 @@ Route::get('/blog', function () {
     return view('Company.blog');
 });
 
-
-
-Route::get('/portfolio-details', function () {
-    return view('Company.portfolio-details');
-});
 
 Route::get('/testimonials', function () {
     return view('Company.testimonials');
@@ -66,6 +64,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Card',CardController::class);
     Route::resource('/Pricing', PricingController::class);
     Route::resource('/Portfolio_img',PortfolioImgController::class);
+    Route::resource('/Portfolio_details', PortfolioDetailController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

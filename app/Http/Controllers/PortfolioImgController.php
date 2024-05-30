@@ -23,7 +23,8 @@ class PortfolioImgController extends Controller
      */
     public function create()
     {
-        //
+        $files = File::query()->paginate(5);
+        return view('Company.admin.portfolioimg.create',compact('files'));
     }
 
     /**
@@ -31,38 +32,58 @@ class PortfolioImgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $portfolio_img = new Portfolio_img;
+        $request->validate([
+            'img'=>'required|max:150'
+        ]);
+        $portfolio_img->img = $request->img;
+        $portfolio_img->save();
+        return redirect('/admin/Portfolio_img')->with('message','Image Added Successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Portfolio_img $portfolio_img)
+    public function show($id)
     {
-        //
+        $files = File::query()->paginate(5);
+        $portfolio_img = Portfolio_img::query()->where('id',$id)->get()->first();
+        return view('Company.admin.portfolioimg.view',compact('files','portfolio_img'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Portfolio_img $portfolio_img)
+    public function edit($id)
     {
-        //
+        $files = File::query()->paginate(5);
+        $portfolio_img = Portfolio_img::query()->where('id',$id)->get()->first();
+        return view('Company.admin.portfolioimg.edit',compact('files','portfolio_img'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Portfolio_img $portfolio_img)
+    public function update(Request $request, $id)
     {
-        //
+        $portfolio_img = new Portfolio_img;
+        $portfolio_img = $portfolio_img->where('id',$id)->get()->first();
+        $request->validate([
+            'img'=>'required|max:150'
+        ]);
+        $portfolio_img->img = $request->img;
+        $portfolio_img->update();
+        return redirect('/admin/Portfolio_img')->with('message','Image updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Portfolio_img $portfolio_img)
+    public function destroy($id)
     {
-        //
+        $portfolio_img = Portfolio_img::query()->where('id',$id)->get()->first();
+       $portfolio_img->delete();
+       return redirect('/admin/Portfolio_img')->with('message','Deleted Successfully'); 
     }
 }

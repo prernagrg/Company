@@ -25,41 +25,37 @@
 
         <div class="row gy-4">
 
+            
           <div class="col-lg-8">
+            
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
-
+                @foreach ($portfolio_imgs as $portfolio_img )
+                
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                  <img src="{{asset('uploads/'. $portfolio_img->img)}}" alt="">
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                </div>
-
+                
+                @endforeach
               </div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
+          
           <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Category</strong>: {{$portfolio_detail->category}}</li>
+                <li><strong>Client</strong>: {{$portfolio_detail->client}}</li>
+                <li><strong>Project date</strong>: {{$portfolio_detail->date}}</li>
+                <li><strong>Project URL</strong>: <a href="">{{$portfolio_detail->project_url}}</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
+              <h2> Portfolio Details</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                {{$portfolio_detail->details}}
               </p>
             </div>
           </div>

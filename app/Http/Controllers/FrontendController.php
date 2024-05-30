@@ -8,6 +8,8 @@ use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
 use App\Models\Feature;
+use App\Models\Portfolio_detail;
+use App\Models\Portfolio_img;
 use App\Models\Pricing;
 use App\Models\Services;
 use App\Models\Site_config;
@@ -64,6 +66,13 @@ class FrontendController extends Controller
    {
     $pricings = Pricing::query()->limit(4)->get();
     return view('Company.pricing',compact('pricings'));
+   }
+
+   public function portfolioDetails()
+   {
+    $portfolio_imgs = Portfolio_img::query()->limit(3)->get();
+    $portfolio_detail = Portfolio_detail::query()->get()->first();
+    return view('Company.portfolio-details', compact('portfolio_imgs','portfolio_detail'));
    }
     public function contact()
     {

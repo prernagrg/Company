@@ -6,7 +6,7 @@
   
           <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
             <div class="app-brand demo">
-              <a href="index.html" class="app-brand-link">
+              <a href="/" class="app-brand-link">
                 <span class="app-brand-logo demo">
                   {{-- <svg
                     width="25"
@@ -75,7 +75,7 @@
             <ul class="menu-inner py-1">
               <!-- Dashboard -->
               <li class="menu-item active">
-                <a href="index.html" class="menu-link">
+                <a href="/admin/dashboard" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-home-circle"></i>
                   <div data-i18n="Analytics">Dashboard</div>
                 </a>
@@ -325,6 +325,46 @@
                   </li>
                   <li class="menu-item">
                     <a href="{{route('Pricing.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface">Portfolio image</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Portfolio_img.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Portfolio_img.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface">Portfolio Details</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Portfolio_details.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Portfolio_details.index')}}" class="menu-link">
                       <div data-i18n="Alerts">Index</div>
                     </a>
                   </li>

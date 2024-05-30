@@ -45,7 +45,7 @@
               <h4>{{$app->title}}</h4>
               <p>{{$app->sub_title}}</p>
               <a href="{{asset('uploads/'. $app->img)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/portfolioDetails" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           @endforeach
@@ -57,7 +57,7 @@
               <h4>{{$web->title}}</h4>
               <p>{{$web->sub_title}}</p>
               <a href="{{asset('uploads/' . $web->img)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolioDetails.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           
@@ -70,7 +70,7 @@
               <h4>{{$card->title}}</h4>
               <p>{{$card->sub_title}}</p>
               <a href="{{asset('uploads/' . $card->img)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="/portfolio-details" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/portfolioDetails" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           @endforeach

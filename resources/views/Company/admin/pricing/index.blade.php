@@ -36,10 +36,10 @@
             <td>{{$pricing->course5}}</td>
             <td>{{$pricing->optional}}</td>
             <td class="action">
-                <a class="btn btn-primary btn-sm "  href="{{route('Pricing.edit',$pricing->id)}}" role="button">Edit</a>
-                <a class="btn btn-info btn-sm " href="{{route('Pricing.show',$pricing->id)}}" role="button">View</a>
+                <a class="btn btn-primary btn-sm "  href="{{route('Pricing.edit',$pricing->id)}}" role="button"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a class="btn btn-info btn-sm " href="{{route('Pricing.show',$pricing->id)}}" role="button"><i class="fa-regular fa-eye"></i></a>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$pricing->id}}">
-                    Delete
+                    <i class="fa-solid fa-trash"></i>
                   </button>
                   
                   <!-- Modal -->
