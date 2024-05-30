@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PortfolioImgController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
@@ -64,6 +65,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Web',WebController::class);
     Route::resource('/Card',CardController::class);
     Route::resource('/Pricing', PricingController::class);
+    Route::resource('/Portfolio_img',PortfolioImgController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
