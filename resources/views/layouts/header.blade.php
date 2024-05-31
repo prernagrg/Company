@@ -30,6 +30,13 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <style>
+    .circle{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%
+    }
+  </style>
 </head>
 
 <body>

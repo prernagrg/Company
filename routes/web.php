@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogSingleController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ClientController;
@@ -19,7 +21,6 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\WebController;
-use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -31,18 +32,12 @@ Route::get('/portfolio',[FrontendController::class,'portfolio'])->name('portfoli
 Route::get('/pricing',[FrontendController::class,'pricing'])->name('pricing');
 Route::get('/portfolioDetails',[FrontendController::class,'portfolioDetails'])->name('portfolioDetails');
 Route::get('/testimonials',[FrontendController::class,'testimonials'])->name('testimonials');
+Route::get('/blogs',[FrontendController::class,'blogs'])->name('blogs');
+Route::get('/blog_single',[FrontendController::class,'blog_single'])->name('blog_single');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/blog-single', function () {
-    return view('Company.blog-single');
-});
-
-Route::get('/blog', function () {
-    return view('Company.blog');
-});
 
 Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -65,6 +60,8 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Portfolio_details', PortfolioDetailController::class);
     Route::resource('/Faqs',FaqController::class);
     Route::resource('/Testimonials',TestimonialController::class);
+    Route::resource('/Blogs',BlogController::class);
+    Route::resource('/Blog_single',BlogSingleController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

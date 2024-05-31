@@ -358,6 +358,46 @@
                 </ul>
               </li>
              
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface"> Blogs</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Blogs.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Blogs.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface"> Blog-single</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Blog_single.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Blog_single.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>

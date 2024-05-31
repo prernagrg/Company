@@ -24,8 +24,8 @@
         <div class="row">
           @foreach ($testimonials as $testimonial)
           <div class="col-lg-6" data-aos="fade-up">
-            <div class="testimonial-item my-3">
-              <img src="{{asset('uploads/' . $testimonial->img)}}" height="100px" width="150px" class="testimonial-img" alt="">
+            <div class="testimonial-item  my-3">
+              <img class="circle" src="{{asset('uploads/' . $testimonial->img)}}" height="100px" width="150px" class="testimonial-img" alt="">
               <h3>{{$testimonial->name}}</h3>
               <h4>{{$testimonial->position}}</h4>
               <p>

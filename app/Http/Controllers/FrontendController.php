@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\App;
+use App\Models\Blog;
+use App\Models\Blog_single;
 use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
@@ -83,6 +85,18 @@ class FrontendController extends Controller
     $portfolio_imgs = Portfolio_img::query()->limit(3)->get();
     $portfolio_detail = Portfolio_detail::query()->get()->first();
     return view('Company.portfolio-details', compact('portfolio_imgs','portfolio_detail'));
+   }
+   public function blogs()
+   {
+    $blogs = Blog::query()->limit(4)->get();
+    return view('Company.blog',compact('blogs'));
+   }
+   public function blog_single()
+   {
+    $blog_single = Blog_single::query()->get()->first();
+    $blog = Blog::query()->get()->first();
+    $testimonial = Testimonial::query()->get()->first();
+    return view('Company.blog-single',compact('blog_single','blog','testimonial'));
    }
     public function contact()
     {
