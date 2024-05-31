@@ -7,6 +7,7 @@ use App\Models\App;
 use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
+use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Portfolio_detail;
 use App\Models\Portfolio_img;
@@ -15,6 +16,7 @@ use App\Models\Services;
 use App\Models\Site_config;
 use App\Models\Skill;
 use App\Models\Team;
+use App\Models\Testimonial;
 use App\Models\Web;
 use Illuminate\Http\Request;
 
@@ -39,7 +41,8 @@ class FrontendController extends Controller
         $teams = Team::query()->limit(4)->get();
         $skills = Skill::query()->limit(6)->get();
         $clients = Client::query()->limit(8)->get();
-        return view('Company.about', compact( 'about','teams','skills', 'clients'));
+        $testimonials = Testimonial::query()->limit(6)->get();
+        return view('Company.about', compact( 'about','teams','skills', 'clients', 'testimonials'));
     }
 
    public function services()
@@ -62,10 +65,17 @@ class FrontendController extends Controller
     return view('Company.portfolio', compact('apps','cards','webs'));
    }
 
+   public function testimonials()
+   {
+    $testimonials = Testimonial::query()->limit(6)->get();
+    return view('Company.testimonials', compact('testimonials'));
+   }
+
    public function pricing()
    {
     $pricings = Pricing::query()->limit(4)->get();
-    return view('Company.pricing',compact('pricings'));
+    $faqs = Faq::query()->limit(5)->get();
+    return view('Company.pricing',compact('pricings','faqs'));
    }
 
    public function portfolioDetails()

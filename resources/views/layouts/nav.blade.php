@@ -15,15 +15,7 @@
               <li><a href="/about" class="nav-item nav-link {{ request()->is('about') ? ' active' : '' }}">About Us</a></li>
               <li><a href="/team" class="nav-item nav-link {{ request()->is('team') ? ' active' : '' }}">Team</a></li>
               <li><a href="/testimonials" class="nav-item nav-link {{ request()->is('testimonials') ? ' active' : '' }}">Testimonials</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
+              
             </ul>
           </li>
 
