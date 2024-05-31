@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogSingleController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
@@ -62,6 +63,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/Testimonials',TestimonialController::class);
     Route::resource('/Blogs',BlogController::class);
     Route::resource('/Blog_single',BlogSingleController::class);
+    Route::resource('Comments',CommentController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

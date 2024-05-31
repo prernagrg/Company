@@ -9,6 +9,7 @@ use App\Models\Blog_single;
 use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Portfolio_detail;
@@ -96,7 +97,8 @@ class FrontendController extends Controller
     $blog_single = Blog_single::query()->get()->first();
     $blog = Blog::query()->get()->first();
     $testimonial = Testimonial::query()->get()->first();
-    return view('Company.blog-single',compact('blog_single','blog','testimonial'));
+    $comments = Comment::query()->limit(4)->get();
+    return view('Company.blog-single',compact('blog_single','blog','testimonial','comments'));
    }
     public function contact()
     {
