@@ -98,25 +98,6 @@
               <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-box"></i>
-                  <div data-i18n="User interface">clients</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="{{route('Client.create')}} " class="menu-link">
-                      <div data-i18n="Accordion">Create</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="{{route('Client.index')}}" class="menu-link">
-                      <div data-i18n="Alerts">Index</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-item">
-                <a href="javascript:void(0)" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-box"></i>
                   <div data-i18n="User interface">Team</div>
                 </a>
                 <ul class="menu-sub">
@@ -412,6 +393,45 @@
                   </li>
                   <li class="menu-item">
                     <a href="{{route('Comments.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface"> Comment Replies</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Cmnt_rly.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Cmnt_rly.index')}}" class="menu-link">
+                      <div data-i18n="Alerts">Index</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+             
+              <li class="menu-item">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-box"></i>
+                  <div data-i18n="User interface"> Recent Posts</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{route('Recent_posts.create')}}" class="menu-link">
+                      <div data-i18n="Accordion">Create</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{route('Recent_posts.index')}}" class="menu-link">
                       <div data-i18n="Alerts">Index</div>
                     </a>
                   </li>

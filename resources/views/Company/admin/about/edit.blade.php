@@ -19,7 +19,7 @@
             <textarea name="description" id="description" cols="3" rows="3" class="form-control" placeholder="Write the description here">{{$about->description}}</textarea>
         </div>
         <div class="my-3">
-            <button class="btn btn-primary btn-md "  type="submit">create</button>
+            <button class="btn btn-primary btn-md "  type="submit">upadte</button>
         </div>
     </form>
    </div>

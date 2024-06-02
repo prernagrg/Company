@@ -1,20 +1,17 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View comments  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Cmnt_rly.index')}}" role="button">View cmnt_rly  </a>
    <div class="shadow p-3 ">
-    <form action="{{route('Comments.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('Cmnt_rly.show',$cmnt_rly->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="my-3 ">
             <label for="" class="form-label">Image</label>
            <div>
             <div class="input-group">
-                <input type="text" class="form-control" disabled name="img" id="image" >
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                   Choose Image
-                </button>
-                
+                <input type="text" value="{{$cmnt_rly->img}}" class="form-control" disabled name="img" id="image" >
+             
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog        ">
@@ -30,7 +27,7 @@
                                     }
                                 </style>
                                 @foreach ($files as $file )
-                                    <label class="my-2">
+                                    <label >
                                         <input type="radio" name="img" value="{{$file->img}}" style="opacity: 0" />
                                         <img src="{{asset('uploads/'. $file->img)}}" alt="" height="100px" width="100px">
                                     </label>
@@ -48,22 +45,20 @@
                 </div>
             </div>
            </div>
+           <img src="{{asset('uploads/'. $cmnt_rly->img)}}" height="auto" width="25%" alt="">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="write the Name here">
+            <input @readonly(true) value="{{$cmnt_rly->name}}" type="text" class="form-control" name="name" placeholder="write the Name here">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">date</label>
-            <input type="text" name="date" class="form-control" placeholder="Write the date here">
+            <input @readonly(true) type="text" value="{{$cmnt_rly->date}}" name="date" class="form-control" placeholder="Write the date here">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">description</label>
-            <textarea type="text" rows="2" name="description" class="form-control" placeholder="Write the description here"></textarea>
-        </div>
-        <div class="my-3">
-            <button class="btn btn-primary btn-md "  type="submit">create</button>
-        </div>
+            <textarea @readonly(true) type="text" rows="2" name="description" class="form-control" placeholder="Write the description here">{{$cmnt_rly->description}}</textarea>
+      
     </form>
    </div>
 </div>

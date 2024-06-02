@@ -1,7 +1,7 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Blogs.index')}}" role="button">View testimonials  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Blogs.index')}}" role="button">View blogs  </a>
    <div class="shadow p-3 ">
     <form action="{{route('Blogs.show',$blog->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -11,12 +11,7 @@
            <div>
             <div class="input-group">
                 <input type="text" value="{{$blog->img}}" class="form-control" disabled name="img" id="image" >
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                   Choose Image
-                </button>
-                
-                <!-- Modal -->
+           <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog        ">
                         <div class="modal-content">

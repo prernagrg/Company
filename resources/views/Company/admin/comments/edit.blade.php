@@ -1,7 +1,7 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View testimonials  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View comments  </a>
    <div class="shadow p-3 ">
     <form action="{{route('Comments.update',$comment->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -31,7 +31,7 @@
                                     }
                                 </style>
                                 @foreach ($files as $file )
-                                    <label >
+                                    <label class="my-2">
                                         <input type="radio" name="img" value="{{$file->img}}" style="opacity: 0" />
                                         <img src="{{asset('uploads/'. $file->img)}}" alt="" height="100px" width="100px">
                                     </label>

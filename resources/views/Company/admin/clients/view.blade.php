@@ -10,9 +10,8 @@
                 <label for="" class="form-label">Image</label>
                <div>
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled name="img" id="image" >
-                   
-               <img src="{{asset('uploads/'. $client->img)}}" alt="">
+           
+               <img src="{{asset('uploads/'. $client->img)}}" height="auto" width="50%" alt="">
 
             </div>
             

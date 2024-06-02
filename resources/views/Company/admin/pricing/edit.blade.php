@@ -48,7 +48,7 @@
             </div>
            
             <div class="my-3">
-                <button class="btn btn-primary btn-md "  type="submit">create</button>
+                <button class="btn btn-primary btn-md "  type="submit">update</button>
             </div>
         </form>
     </div>

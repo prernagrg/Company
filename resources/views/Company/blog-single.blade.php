@@ -99,6 +99,7 @@
 
             <h4 class="comments-count">8 Comments</h4>
             @foreach ($comments as $comment )
+            @foreach ($cmnt_rlys as $cmnt_rly )
               
             <div id="comment-2" class="comment">
               <div class="d-flex">
@@ -111,19 +112,16 @@
                   </p>
                 </div>
               </div>
+
               
               <div id="comment-reply-1" class="comment comment-reply">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
+                  <div class="comment-img"><img src="{{asset('uploads/'.$cmnt_rly->img)}}" alt=""></div>
                   <div>
-                    <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <h5><a href="">{{$cmnt_rly->name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">{{$cmnt_rly->date}}</time>
                     <p>
-                      Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
-                      
-                      Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
-                      
-                      Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
+                      {{$cmnt_rly->description}}
                     </p>
                   </div>
                 </div>
@@ -133,6 +131,7 @@
               
             </div><!-- End comment #2-->
             
+            @endforeach
             @endforeach
 
             <div class="reply-form">
@@ -193,35 +192,15 @@
 
             <h3 class="sidebar-title">Recent Posts</h3>
             <div class="sidebar-item recent-posts">
+              @foreach ($recent_posts as $recent_post )
+                
               <div class="post-item clearfix">
-                <img src="assets/img/blog/blog-recent-1.jpg" alt="">
-                <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
+                <img src="{{asset('uploads/' . $recent_post->img)}}" alt="">
+                <h4><a href="blog-single.html">{{$recent_post->title}}</a></h4>
+                <time datetime="2020-01-01">{{$recent_post->date}}</time>
               </div>
-
-              <div class="post-item clearfix">
-                <img src="assets/img/blog/blog-recent-2.jpg" alt="">
-                <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-              </div>
-
-              <div class="post-item clearfix">
-                <img src="assets/img/blog/blog-recent-3.jpg" alt="">
-                <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-              </div>
-
-              <div class="post-item clearfix">
-                <img src="assets/img/blog/blog-recent-4.jpg" alt="">
-                <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-              </div>
-
-              <div class="post-item clearfix">
-                <img src="assets/img/blog/blog-recent-5.jpg" alt="">
-                <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-              </div>
+              
+              @endforeach
 
             </div><!-- End sidebar recent posts-->
 

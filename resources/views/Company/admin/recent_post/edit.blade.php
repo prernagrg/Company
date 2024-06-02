@@ -1,15 +1,16 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View comments  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Recent_posts.index')}}" role="button">View recent_posts  </a>
    <div class="shadow p-3 ">
-    <form action="{{route('Comments.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('Recent_posts.update',$recent_post->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="my-3 ">
             <label for="" class="form-label">Image</label>
            <div>
             <div class="input-group">
-                <input type="text" class="form-control" disabled name="img" id="image" >
+                <input value="{{$recent_post->img}}" type="text" class="form-control" disabled name="img" id="image" >
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                    Choose Image
@@ -48,21 +49,19 @@
                 </div>
             </div>
            </div>
+           <img src="{{asset('uploads/'.$recent_post->img)}}" height="auto" width="25%" alt="">
         </div>
         <div class="my-3 ">
-            <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="write the Name here">
+            <label for="" class="form-label">title</label>
+            <input type="text" value="{{$recent_post->title}}" class="form-control" name="title" placeholder="write the Name here">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">date</label>
-            <input type="text" name="date" class="form-control" placeholder="Write the date here">
+            <input type="text" value="{{$recent_post->date}}" name="date" class="form-control" placeholder="Write the date here">
         </div>
-        <div class="my-3 ">
-            <label for="" class="form-label">description</label>
-            <textarea type="text" rows="2" name="description" class="form-control" placeholder="Write the description here"></textarea>
-        </div>
+       
         <div class="my-3">
-            <button class="btn btn-primary btn-md "  type="submit">create</button>
+            <button class="btn btn-primary btn-md "  type="submit">update</button>
         </div>
     </form>
    </div>

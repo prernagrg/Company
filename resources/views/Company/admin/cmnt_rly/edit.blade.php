@@ -1,15 +1,16 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View comments  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Cmnt_rly.index')}}" role="button">View cmnt_rly  </a>
    <div class="shadow p-3 ">
-    <form action="{{route('Comments.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('Cmnt_rly.update',$cmnt_rly->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="my-3 ">
             <label for="" class="form-label">Image</label>
            <div>
             <div class="input-group">
-                <input type="text" class="form-control" disabled name="img" id="image" >
+                <input type="text" value="{{$cmnt_rly->img}}" class="form-control" disabled name="img" id="image" >
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                    Choose Image
@@ -48,21 +49,22 @@
                 </div>
             </div>
            </div>
+           <img src="{{asset('uploads/'. $cmnt_rly->img)}}" height="auto" width="25%" alt="">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="write the Name here">
+            <input value="{{$cmnt_rly->name}}" type="text" class="form-control" name="name" placeholder="write the Name here">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">date</label>
-            <input type="text" name="date" class="form-control" placeholder="Write the date here">
+            <input type="text" value="{{$cmnt_rly->date}}" name="date" class="form-control" placeholder="Write the date here">
         </div>
         <div class="my-3 ">
             <label for="" class="form-label">description</label>
-            <textarea type="text" rows="2" name="description" class="form-control" placeholder="Write the description here"></textarea>
+            <textarea type="text" rows="2" name="description" class="form-control" placeholder="Write the description here">{{$cmnt_rly->description}}</textarea>
         </div>
         <div class="my-3">
-            <button class="btn btn-primary btn-md "  type="submit">create</button>
+            <button class="btn btn-primary btn-md "  type="submit">update</button>
         </div>
     </form>
    </div>

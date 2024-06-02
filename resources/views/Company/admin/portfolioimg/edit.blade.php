@@ -31,7 +31,7 @@
                                     }
                                 </style>
                                 @foreach ($files as $file )
-                                    <label >
+                                    <label class="my-2">
                                         <input type="radio" name="img" value="{{$file->img}}" style="opacity: 0" />
                                         <img src="{{asset('uploads/'. $file->img)}}" alt="" height="100px" width="100px">
                                     </label>
@@ -52,7 +52,7 @@
            <img src="{{asset('uploads/' . $portfolio_img->img)}}" width="25%" height="auto" alt="">
         </div>
         <div class="my-3">
-            <button class="btn btn-primary btn-md "  type="submit">create</button>
+            <button class="btn btn-primary btn-md "  type="submit">update</button>
         </div>
     </form>
    </div>

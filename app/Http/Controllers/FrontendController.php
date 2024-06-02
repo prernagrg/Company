@@ -9,12 +9,14 @@ use App\Models\Blog_single;
 use App\Models\Card;
 use App\Models\Carousel;
 use App\Models\Client;
+use App\Models\Cmnt_rly;
 use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Portfolio_detail;
 use App\Models\Portfolio_img;
 use App\Models\Pricing;
+use App\Models\Recent_post;
 use App\Models\Services;
 use App\Models\Site_config;
 use App\Models\Skill;
@@ -90,7 +92,8 @@ class FrontendController extends Controller
    public function blogs()
    {
     $blogs = Blog::query()->limit(4)->get();
-    return view('Company.blog',compact('blogs'));
+    $recent_posts = Recent_post::query()->limit(5)->get();
+    return view('Company.blog',compact('blogs','recent_posts'));
    }
    public function blog_single()
    {
@@ -98,7 +101,9 @@ class FrontendController extends Controller
     $blog = Blog::query()->get()->first();
     $testimonial = Testimonial::query()->get()->first();
     $comments = Comment::query()->limit(4)->get();
-    return view('Company.blog-single',compact('blog_single','blog','testimonial','comments'));
+    $cmnt_rlys = Cmnt_rly::query()->limit(4)->get();
+    $recent_posts = Recent_post::query()->limit(5)->get();
+    return view('Company.blog-single',compact('blog_single','blog','testimonial','comments','cmnt_rlys','recent_posts'));
    }
     public function contact()
     {

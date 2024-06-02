@@ -1,9 +1,9 @@
 @extends('Company.admin.inc.main')
 @section('container')
 <div class="container py-4 ">
-    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Comments.index')}}" role="button">View comments  </a>
+    <a class="btn btn-secondary btn-md float-end m-3" href="{{route('Cmnt_rly.index')}}" role="button">View cmnt rly  </a>
    <div class="shadow p-3 ">
-    <form action="{{route('Comments.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('Cmnt_rly.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="my-3 ">
             <label for="" class="form-label">Image</label>
