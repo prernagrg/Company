@@ -19,10 +19,10 @@
             </ul>
           </li>
 
-          <li><a class="" href="/services" class="nav-item nav-link {{ Request::is('services') ? ' active' : ''}}">Services</a></li>
+          <li><a class="" href="/services" class="nav-item nav-link {{ request()->is('services') ? ' active' : ''}}">Services</a></li>
           <li><a href="/portfolio" class="nav-item nav-link {{ request()->is('portfolio') ? ' active' : '' }}">Portfolio</a></li>
           <li><a href="/pricing" class="nav-item nav-link {{ request()->is('pricing') ? ' active' : '' }}">Pricing</a></li>
-          <li><a href="/blogs" class="nav-item nav-link {{ request()->is('blog') ? ' active' : '' }}">Blog</a></li>
+          <li><a href="/blogs" class="nav-item nav-link {{ request()->is('blogs') ? ' active' : '' }}">Blog</a></li>
           <li><a href="/contact" class="nav-item nav-link {{ request()->is('contact') ? ' active' : '' }}">Contact</a></li>
 
         </ul>
