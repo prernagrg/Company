@@ -14,7 +14,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.blog.index',compact('blogs','files'));
     }
 
@@ -23,7 +23,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.blog.create',compact('files'));
     }
 
@@ -57,7 +57,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $blog = Blog::query()->where('id',$id)->get()->first();
         return view('Company.admin.blog.view',compact('files','blog'));
     }
@@ -67,7 +67,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $blog = Blog::query()->where('id',$id)->get()->first();
         return view('Company.admin.blog.edit',compact('files','blog'));
     }

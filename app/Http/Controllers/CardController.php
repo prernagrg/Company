@@ -13,7 +13,7 @@ class CardController extends Controller
      */
     public function index()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $cards = Card::query()->paginate(5);
         return view('Company.admin.card.index',compact('files','cards'));
     }
@@ -23,7 +23,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.card.create',compact('files'));
     }
 
@@ -51,7 +51,7 @@ class CardController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $card = Card::query()->where('id',$id)->get()->first();
         return view('Company.admin.card.view',compact('files','card'));
     }
@@ -61,7 +61,7 @@ class CardController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $card = Card::query()->where('id',$id)->get()->first();
         return view('Company.admin.card.edit',compact('files','card'));
     }

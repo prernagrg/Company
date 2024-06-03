@@ -14,7 +14,7 @@ class CmntRlyController extends Controller
     public function index()
     {
         $cmnt_rlys = Cmnt_rly::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.cmnt_rly.index',compact('files','cmnt_rlys'));
     }
 
@@ -23,7 +23,7 @@ class CmntRlyController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.cmnt_rly.create',compact('files'));
     }
 
@@ -53,7 +53,7 @@ class CmntRlyController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $cmnt_rly = Cmnt_rly::query()->where('id',$id)->get()->first();
         return view('Company.admin.cmnt_rly.view',compact('files','cmnt_rly'));
     }
@@ -63,7 +63,7 @@ class CmntRlyController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $cmnt_rly = Cmnt_rly::query()->where('id',$id)->get()->first();
         return view('Company.admin.cmnt_rly.edit',compact('files','cmnt_rly'));
     }

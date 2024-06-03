@@ -23,7 +23,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.testimonials.create',compact('files'));
     }
 
@@ -53,7 +53,7 @@ class TestimonialController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $testimonial = Testimonial::query()->where('id',$id)->get()->first();
         return view('Company.admin.testimonials.view',compact('files','testimonial'));
     }
@@ -63,7 +63,7 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $testimonial = Testimonial::query()->where('id',$id)->get()->first();
         return view('Company.admin.testimonials.edit',compact('files','testimonial'));
     }

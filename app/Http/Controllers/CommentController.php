@@ -14,7 +14,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.comments.index',compact('comments','files'));
     }
 
@@ -23,7 +23,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.comments.create',compact('files'));
     }
 
@@ -53,7 +53,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $comment = Comment::query()->where('id',$id)->get()->first();
         return view('Company.admin.comments.view',compact('files','comment'));
     }
@@ -63,7 +63,7 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $comment = Comment::query()->where('id',$id)->get()->first();
         return view('Company.admin.comments.edit',compact('files','comment'));
     }

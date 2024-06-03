@@ -14,7 +14,7 @@ class PortfolioImgController extends Controller
     public function index()
     {
         $portfolio_imgs = Portfolio_img::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.portfolioimg.index',compact('portfolio_imgs','files'));
     }
 
@@ -23,7 +23,7 @@ class PortfolioImgController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.portfolioimg.create',compact('files'));
     }
 
@@ -47,7 +47,7 @@ class PortfolioImgController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $portfolio_img = Portfolio_img::query()->where('id',$id)->get()->first();
         return view('Company.admin.portfolioimg.view',compact('files','portfolio_img'));
     }
@@ -57,7 +57,7 @@ class PortfolioImgController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $portfolio_img = Portfolio_img::query()->where('id',$id)->get()->first();
         return view('Company.admin.portfolioimg.edit',compact('files','portfolio_img'));
     }

@@ -16,7 +16,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
        return view('Company.admin.Files.index', compact('files'));
     }
 

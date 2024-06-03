@@ -14,7 +14,7 @@ class AppController extends Controller
     public function index()
     {
         $apps = App::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.app.index',compact('apps','files'));
     }
 
@@ -23,7 +23,7 @@ class AppController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.app.create',compact('files'));
     }
 
@@ -51,7 +51,7 @@ class AppController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $app = App::query()->where('id',$id)->get()->first();
         return view('Company.admin.app.view',compact('files','app'));
     }
@@ -61,7 +61,7 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $app = App::query()->where('id',$id)->get()->first();
         return view('Company.admin.app.edit',compact('files','app'));
     }

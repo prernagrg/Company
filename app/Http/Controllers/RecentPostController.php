@@ -14,7 +14,7 @@ class RecentPostController extends Controller
     public function index()
     {
         $recent_posts = Recent_post::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.recent_post.index',compact('recent_posts','files'));
     }
 
@@ -23,7 +23,7 @@ class RecentPostController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.recent_post.create',compact('files'));
     }
 
@@ -52,7 +52,7 @@ class RecentPostController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $recent_post = Recent_post::query()->where('id',$id)->get()->first();
         return view('Company.admin.recent_post.view',compact('files','recent_post'));
     }
@@ -62,7 +62,7 @@ class RecentPostController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $recent_post = Recent_post::query()->where('id',$id)->get()->first();
         return view('Company.admin.recent_post.edit',compact('files','recent_post'));
     }

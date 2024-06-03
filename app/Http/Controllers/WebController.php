@@ -13,7 +13,7 @@ class WebController extends Controller
      */
     public function index()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $webs = Web::query()->paginate(5);
         return view('Company.admin.web.index', compact('files','webs'));
     }
@@ -23,7 +23,7 @@ class WebController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.web.create',compact('files'));
     }
 
@@ -51,7 +51,7 @@ class WebController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $web = Web::query()->where('id',$id)->get()->first();
         return view('Company.admin.web.view',compact('files','web'));
     }
@@ -61,7 +61,7 @@ class WebController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $web = Web::query()->where('id',$id)->get()->first();
         return view('Company.admin.web.edit',compact('files','web'));
     }

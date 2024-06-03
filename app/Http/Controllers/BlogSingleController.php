@@ -14,7 +14,7 @@ class BlogSingleController extends Controller
     public function index()
     {
         $blog_singles = Blog_single::query()->paginate(5);
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.blog_single.index',compact('blog_singles','files'));
     }
 
@@ -23,7 +23,7 @@ class BlogSingleController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         return view('Company.admin.blog_single.create',compact('files'));
     }
 
@@ -53,7 +53,7 @@ class BlogSingleController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $blog_single= Blog_single::query()->where('id',$id)->get()->first();
         return view('Company.admin.blog_single.view',compact('files','blog_single'));
     }
@@ -63,7 +63,7 @@ class BlogSingleController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(5);
+        $files = File::query()->paginate(8);
         $blog_single= Blog_single::query()->where('id',$id)->get()->first();
         return view('Company.admin.blog_single.edit',compact('files','blog_single'));
     }

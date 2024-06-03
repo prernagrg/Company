@@ -22,7 +22,7 @@ class CarouselController extends Controller
      */
     public function create()
     {
-        $files = File::query()->paginate(4);
+        $files = File::query()->paginate(8);
         return view('Company.admin.carousel.create',compact('files'));
     }
 
@@ -50,7 +50,7 @@ class CarouselController extends Controller
      */
     public function show($id)
     {
-        $files = File::query()->paginate(4);
+        $files = File::query()->paginate(8);
         $carousel = Carousel::query()->where('id',$id)->get()->first();
         return view('Company.admin.carousel.view', compact('carousel','files'));
     }
@@ -60,7 +60,7 @@ class CarouselController extends Controller
      */
     public function edit($id)
     {
-        $files = File::query()->paginate(4);
+        $files = File::query()->paginate(8);
         $carousel = Carousel::query()->where('id',$id)->get()->first();
         return view('Company.admin.carousel.edit', compact('carousel','files'));
     }
