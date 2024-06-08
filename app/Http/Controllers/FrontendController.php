@@ -101,7 +101,7 @@ class FrontendController extends Controller
     $blog = Blog::query()->get()->first();
     $testimonial = Testimonial::query()->get()->first();
     $comments = Comment::query()->limit(4)->get();
-    $cmnt_rlys = Cmnt_rly::query()->limit(4)->get();
+    $cmnt_rlys = Cmnt_rly::query()->get()->first();
     $recent_posts = Recent_post::query()->limit(5)->get();
     return view('Company.blog-single',compact('blog_single','blog','testimonial','comments','cmnt_rlys','recent_posts'));
    }

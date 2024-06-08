@@ -98,9 +98,7 @@
           <div class="blog-comments">
 
             <h4 class="comments-count">8 Comments</h4>
-            @foreach ($comments as $comment )
-            @foreach ($cmnt_rlys as $cmnt_rly )
-              
+            @foreach ($comments as $comment )              
             <div id="comment-2" class="comment">
               <div class="d-flex">
                 <div class="comment-img"><img src="{{asset('uploads/' . $comment->img)}}" alt=""></div>
@@ -112,26 +110,22 @@
                   </p>
                 </div>
               </div>
-
-              
               <div id="comment-reply-1" class="comment comment-reply">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="{{asset('uploads/'.$cmnt_rly->img)}}" alt=""></div>
+                  <div class="comment-img"><img src="{{asset('uploads/'.$cmnt_rlys->img)}}" alt=""></div>
                   <div>
-                    <h5><a href="">{{$cmnt_rly->name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">{{$cmnt_rly->date}}</time>
+                    <h5><a href="">{{$cmnt_rlys->name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">{{$cmnt_rlys->date}}</time>
                     <p>
-                      {{$cmnt_rly->description}}
+                      {{$cmnt_rlys->description}}
                     </p>
                   </div>
                 </div>
                 
                 
               </div><!-- End comment reply #1-->
-              
             </div><!-- End comment #2-->
             
-            @endforeach
             @endforeach
 
             <div class="reply-form">
